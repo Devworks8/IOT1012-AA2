@@ -78,11 +78,11 @@ class CRUDUtil(object):
 
 @ns.route('/')  # keep in mind this our ns-namespace (books/)
 class BookList(Resource):
-    """Shows a list of all books, and lets you POST to add new pins"""
+    """Shows a list of all books, and lets you POST to add new books"""
 
     @ns.marshal_list_with(book_model)
     def get(self):
-        """List all pins"""
+        """List all books"""
         return crud_util.books
 
     @ns.expect(book_model)

@@ -43,7 +43,10 @@ class CRUDUtil(object):
             book["title"] = resp["title"]
             book["author"] = resp["authors"][0]
             book["isbn"] = data.get("isbn")
-            book["publisher"] = resp["publisher"]
+            if "publisher" in resp.keys():
+                book["publisher"] = resp["publisher"]
+            else:
+                book["publisher"] = "Unknown"
             if "categories" in resp.keys():
                 book["genre"] = resp["categories"][0]
             else:
@@ -55,7 +58,10 @@ class CRUDUtil(object):
             book["title"] = book.get("title")
             book["author"] = resp["authors"][0]
             book["isbn"] = resp["industryIdentifiers"][0]["identifier"]
-            book["publisher"] = resp["publisher"]
+            if "publisher" in resp.keys():
+                book["publisher"] = resp["publisher"]
+            else:
+                book["publisher"] = "Unknown"
             if "categories" in resp.keys():
                 book["genre"] = resp["categories"][0]
             else:

@@ -103,7 +103,7 @@ class Book(Resource):
         """Fetch a book given its resource identifier"""
         return crud_util.get(id)
 
-    @ns.response(204, 'pin deleted')
+    @ns.response(204, 'book deleted')
     def delete(self, id):
         """Delete a book given its identifier"""
         crud_util.delete(id)
